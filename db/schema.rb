@@ -11,7 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121211001224) do
+ActiveRecord::Schema.define(:version => 20130211055707) do
+
+  create_table "lunch_events", :force => true do |t|
+    t.string   "name"
+    t.integer  "health"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "lunch_events_venues", :id => false, :force => true do |t|
+    t.integer "lunch_event_id"
+    t.integer "venue_id"
+  end
+
+  add_index "lunch_events_venues", ["lunch_event_id", "venue_id"], :name => "index_lunch_events_venues_on_lunch_event_id_and_venue_id"
+  add_index "lunch_events_venues", ["venue_id", "lunch_event_id"], :name => "index_lunch_events_venues_on_venue_id_and_lunch_event_id"
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -43,11 +58,27 @@ ActiveRecord::Schema.define(:version => 20121211001224) do
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
+  create_table "users_lunch_events", :id => false, :force => true do |t|
+    t.integer "user_id"
+    t.integer "lunch_event_id"
+  end
+
+  add_index "users_lunch_events", ["lunch_event_id", "user_id"], :name => "index_users_lunch_events_on_lunch_event_id_and_user_id"
+  add_index "users_lunch_events", ["user_id", "lunch_event_id"], :name => "index_users_lunch_events_on_user_id_and_lunch_event_id"
+
   create_table "users_roles", :id => false, :force => true do |t|
     t.integer "user_id"
     t.integer "role_id"
   end
 
   add_index "users_roles", ["user_id", "role_id"], :name => "index_users_roles_on_user_id_and_role_id"
+
+  create_table "venues", :force => true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end

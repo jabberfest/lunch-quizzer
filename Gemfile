@@ -31,3 +31,10 @@ gem "newrelic_rpm"
 gem "quiet_assets", ">= 1.0.1", :group => :development
 gem "better_errors", ">= 0.0.8", :group => :development
 gem "binding_of_caller", ">= 0.6.8", :group => :development
+
+group :development do
+  gem 'guard'
+  gem 'guard-handlebars'
+  gem 'rb-inotify', '~> 0.8.8'
+  gem "rb-readline", "~> 0.4.2"
+end
