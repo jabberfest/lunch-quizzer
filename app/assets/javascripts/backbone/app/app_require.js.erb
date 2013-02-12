@@ -1,0 +1,54 @@
+var app_require = requirejs.config({
+    context: "app",
+    paths: {
+        jquery: '<%= javascript_path('jquery/jquery-1.9.1').gsub!('.js','') %>' ,
+        underscore: '<%= javascript_path('underscore/underscore-1.4.4').gsub!('.js','') %>' ,
+        backbone: '<%= javascript_path('backbone/backbone-0.9.10').gsub!('.js','') %>' ,
+        handlebars: '<%= javascript_path('handlebars/handlebars-runtime-1.0.rc.2').gsub!('.js','') %>',
+        marionette:'<%= javascript_path('backbone/backbone.marionette-1.0.0-rc6').gsub!('.js','') %>',
+        "backbone.eventbinder":'<%= javascript_path('backbone/backbone.eventbinder').gsub!('.js','') %>',
+        "backbone.wreqr":'<%= javascript_path('backbone/backbone.wreqr').gsub!('.js','') %>',
+        "backbone.babysitter":'<%= javascript_path('backbone/backbone.babysitter').gsub!('.js','') %>'
+    } ,
+
+
+    shim: {
+        'backbone': {
+            //These script dependencies should be loaded before loading
+            //backbone.js
+            deps: ['underscore', 'jquery'],
+            //Once loaded, use the global 'Backbone' as the
+            //module value.
+            exports: 'Backbone'
+        },
+        'handlebars': {
+            //These script dependencies should be loaded before loading
+            //backbone.js
+            deps: [],
+            //Once loaded, use the global 'Backbone' as the
+            //module value.
+            exports: 'Handlebars'
+        },
+        'underscore':{
+            deps: [],
+            exports: '_'
+        }
+    }
+});
+
+///////////////////////////////////////////////////////////
+//Define Require Contexts for different portions of our App
+///////////////////////////////////////////////////////////
+var catalog_home_require = requirejs.config({
+    context: "app"
+});
+
+
+
+app_require([
+    '<%= javascript_path('backbone/app/app') %>'
+], function(App){
+
+
+});
+

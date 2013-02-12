@@ -1,5 +1,5 @@
 - content_for :javascript_includes do
-  = javascript_include_tag :home
+  = javascript_include_tag "require/require", {"data-main" => javascript_path("backbone/app/app_require").gsub!('.js','')}
 
 %h3 Home
 - @users.each do |user|
