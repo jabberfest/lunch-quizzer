@@ -1,4 +1,9 @@
+- content_for :javascript_includes do
+  = javascript_include_tag :home
+
 %h3 Home
 - @users.each do |user|
   %p
     User: #{link_to user.name, user}
+#app-body
+

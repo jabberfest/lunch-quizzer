@@ -15,4 +15,4 @@
 //= require bootstrap
 //= require underscore
 //= require backbone
-//= require_tree .
+//= require handlebars

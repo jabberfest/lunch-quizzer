@@ -1,6 +1,3 @@
-# A sample Guardfile
-# More info at https://github.com/guard/guard#readme
-
-guard 'handlebars' do
+guard 'handlebars', :input => 'app/assets/javascripts/backbone/handlebars', :output => 'app/assets/javascripts/backbone/views' do
   watch(/^.+(\.html)?(\.handlebars)$/)
 end
