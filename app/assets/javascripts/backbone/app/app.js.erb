@@ -1,0 +1,21 @@
+define([
+    'jquery',
+    'underscore',
+    'backbone',
+    'handlebars',
+    '<%= javascript_path('backbone/app/router') %>',
+    '<%= javascript_path('backbone/plugins/extensions') %>',
+    'marionette'
+
+], function($, _, Backbone){
+
+		var App = new Backbone.Marionette.Application();
+
+
+		App.addInitializer(function(){
+			Backbone.history.start();
+		});
+
+        return App;
+});
+

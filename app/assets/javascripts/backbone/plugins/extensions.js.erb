@@ -1,5 +1,9 @@
-(function(){
-	
+define([
+    'jquery',
+    'underscore',
+    'backbone'
+], function($, _, Backbone){
+
         //Adds Support for Rails CSRF Protection
         var fixSync = function(){
             /* alias away the sync method */
@@ -23,7 +27,5 @@
 
         fixSync();
 
-        //No need to return anything because we access through global Backbone object
-
-
-})(Backbone);
+        //No need to return anything because we access extended functions through global Backbone object
+});
