@@ -76,7 +76,6 @@ ActiveRecord::Schema.define(:version => 20130211055707) do
   create_table "venues", :force => true do |t|
     t.string   "name"
     t.string   "address"
-    t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
