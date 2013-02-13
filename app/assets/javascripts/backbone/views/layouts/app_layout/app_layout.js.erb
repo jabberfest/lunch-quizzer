@@ -4,7 +4,8 @@ define([
     'underscore',
     'backbone',
     'handlebars',
-    'marionette'
+    'marionette',
+    '<%= javascript_path('backbone/views/layouts/app_layout/app_layout_template')%>'
 ], function($,_,Backbone,Handlebars,Marionette){
 
 	var AppLayout = Backbone.Marionette.Layout.extend({
@@ -17,23 +18,4 @@ define([
 
 	return AppLayout;
 
-
 });
-
-
-/*
-var AppLayout = (function(){
-
-	var AppLayout = Backbone.Marionette.Layout.extend({
-		template: Handlebars.templates['app_layout_template'],
-		regions:{
-			app_body: '#main_body'
-		}
-
-	});
-
-	return AppLayout;
-
-})();
-
-*/

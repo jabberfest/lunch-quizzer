@@ -7,22 +7,9 @@ define([
 ], function($,_,Backbone,handlebars,Marionette){
 
 	var AppRegion = Backbone.Marionette.Region.extend({
-		el: $(#app_body)
+		el: $('#app-body')
 	});
 
-
-	return AppRegion
+	return AppRegion;
 
 });
-/*
-var AppRegion = (function(){
-
-	var AppRegion = Backbone.Marionette.Region.extend({
-		el: $('#app_body')
-	});
-
-	return AppRegion
-
-})();
-
-*/

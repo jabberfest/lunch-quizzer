@@ -9,17 +9,15 @@ define([
     '<%= javascript_path('backbone/views/regions/app_region') %>'
 
 
-], function($, _, Backbone,Handlebars,Marionette,AppLayout){
+], function($, _, Backbone,Handlebars,Marionette,AppLayout, AppRegion){
 
       var MainAppController = {
 
           Home: function() {    
             var app_layout = new AppLayout();
-            //var app_region = new AppRegion();
+            var app_region = new AppRegion();
 
-            //app_region.show(app_layout);
-
-            console.log("works");        
+            app_region.show(app_layout);     
           }
 
       };
