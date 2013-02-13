@@ -1,0 +1,28 @@
+define([
+    'jquery',
+    'underscore',
+    'backbone',
+    'handlebars',
+    'marionette'
+], function($,_,Backbone,handlebars,Marionette){
+
+	var AppRegion = Backbone.Marionette.Region.extend({
+		el: $(#app_body)
+	});
+
+
+	return AppRegion
+
+});
+/*
+var AppRegion = (function(){
+
+	var AppRegion = Backbone.Marionette.Region.extend({
+		el: $('#app_body')
+	});
+
+	return AppRegion
+
+})();
+
+*/

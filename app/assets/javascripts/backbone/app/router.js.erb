@@ -4,14 +4,17 @@ define([
     'underscore',
     'backbone',
     'handlebars',
-    'marionette'
+    'marionette',
+    '<%= javascript_path('backbone/views/layouts/app_layout/app_layout') %>',
+    '<%= javascript_path('backbone/views/regions/app_region') %>'
 
-], function($, _, Backbone,Handlebars,Marionette,MainApp,Global){
+
+], function($, _, Backbone,Handlebars,Marionette,AppLayout){
 
       var MainAppController = {
 
           Home: function() {    
-            //var app_layout = new AppLayout();
+            var app_layout = new AppLayout();
             //var app_region = new AppRegion();
 
             //app_region.show(app_layout);

@@ -23,7 +23,7 @@ LunchQuizzer::Application.configure do
 
   
   # Generate digests for assets URLs
-  config.assets.digest = true
+  config.assets.digest = false
 
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
