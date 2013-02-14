@@ -11,7 +11,9 @@ define([
 	var AppLayout = Backbone.Marionette.Layout.extend({
 		template: Handlebars.templates['app_layout_template'],
 		regions:{
-			app_body: '#main_body'
+			app_body: '#main_body',
+			lunches: '#lunches',
+			new_event: '#locations'
 		}
 
 	});

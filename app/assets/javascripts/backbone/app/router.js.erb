@@ -6,10 +6,12 @@ define([
     'handlebars',
     'marionette',
     '<%= javascript_path('backbone/views/layouts/app_layout/app_layout') %>',
-    '<%= javascript_path('backbone/views/regions/app_region') %>'
+    '<%= javascript_path('backbone/views/regions/app_region') %>',
+    '<%= javascript_path('backbone/views/item_views/lunches/lunches') %>',
+    '<%= javascript_path('backbone/models/lunches') %>'
 
 
-], function($, _, Backbone,Handlebars,Marionette,AppLayout, AppRegion){
+], function($, _, Backbone,Handlebars,Marionette,AppLayout, AppRegion, LunchesView, LunchesModel){
 
       var MainAppController = {
 
@@ -17,7 +19,9 @@ define([
             var app_layout = new AppLayout();
             var app_region = new AppRegion();
 
-            app_region.show(app_layout);     
+            app_region.show(app_layout); 
+            app_layout.lunches.show(new LunchesView());
+
           }
 
       };
