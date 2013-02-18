@@ -5,23 +5,13 @@ define([
     'backbone',
     'handlebars',
     'marionette',
-    '<%= javascript_path('backbone/views/layouts/app_layout/app_layout') %>',
-    '<%= javascript_path('backbone/views/regions/app_region') %>',
-    '<%= javascript_path('backbone/views/item_views/lunches/lunches') %>',
-    '<%= javascript_path('backbone/models/lunches') %>'
-
-
-], function($, _, Backbone,Handlebars,Marionette,AppLayout, AppRegion, LunchesView, LunchesModel){
+    '<%= javascript_path('backbone/controllers/tab_controller') %>'
+], function($, _, Backbone,Handlebars,Marionette,TabController){
 
       var MainAppController = {
 
-          Home: function() {    
-            var app_layout = new AppLayout();
-            var app_region = new AppRegion();
-
-            app_region.show(app_layout); 
-            app_layout.lunches.show(new LunchesView());
-
+          Lunches: function() {    
+            TabController.setLunchTab();
           }
 
       };
@@ -29,7 +19,7 @@ define([
 
       var Router = Backbone.Marionette.AppRouter.extend({
             appRoutes : {
-                '': 'Home',
+                '': 'Lunches',
             }
 
       });

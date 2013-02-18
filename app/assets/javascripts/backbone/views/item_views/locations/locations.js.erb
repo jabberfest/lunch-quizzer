@@ -1,0 +1,48 @@
+
+define([
+    'jquery',
+    'underscore',
+    'backbone',
+    'handlebars',
+    'marionette',
+    '<%= javascript_path('backbone/views/item_views/locations/locations_template')%>',
+    '<%= javascript_path('backbone/models/location') %>'
+], function($,_,Backbone,Handlebars,Marionette,LocationsTemplate,LocationModel){
+
+	var LocationsView = Backbone.Marionette.ItemView.extend({
+		template: Handlebars.templates['locations_template'],
+	    onBeforeRender:function(){
+            locationModel = new LocationModel();
+            this.model = locationModel;
+
+            this.on('save',function(){
+                var name = this.$el.find('#inputName').val();
+                var street = this.$el.find('#inputStreet').val();
+                var city = this.$el.find('#inputCity').val();
+                var zipcode = this.$el.find('#inputZipCode').val();
+
+                this.model.set({
+                    name: name,
+                    street: street,
+                    city: city,
+                    zipcode: zipcode
+                });
+
+                this.model.save();
+                
+                //Replace With Event Aggregator
+                //TabController.setLunchTab();
+
+            });
+
+        },
+
+        triggers:{
+            'submit form' : 'save'
+        }
+
+    });
+
+	return LocationsView;
+
+});

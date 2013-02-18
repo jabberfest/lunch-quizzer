@@ -22,8 +22,9 @@ LunchQuizzer::Application.configure do
   config.action_mailer.default :charset => "utf-8"
 
   
-  # Generate digests for assets URLs
   config.assets.digest = false
+
+
 
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",

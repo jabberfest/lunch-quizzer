@@ -4,7 +4,7 @@ define([
 ], function(_, Backbone){
 
 
-    var LunchesModel = Backbone.Model.extend({
+    var LunchModel = Backbone.Model.extend({
         defaults: {
             name: ''
         },
@@ -13,5 +13,5 @@ define([
     });
 
 
-    return LunchesModel;
+    return LunchModel;
 });

@@ -1,0 +1,32 @@
+define([
+    'jquery',
+    'underscore',
+    'backbone',
+    'handlebars',
+    'marionette',
+    'bootstrap',
+    '<%= javascript_path('backbone/views/layouts/app_layout/app_layout') %>',
+    '<%= javascript_path('backbone/views/item_views/lunches/lunches') %>',
+    '<%= javascript_path('backbone/views/item_views/locations/locations') %>'
+], function($,_,Backbone,Handlebars,Marionette,Bootstrap, AppLayout, LunchesView, LocationsView){
+
+    var TabController = Backbone.Marionette.Controller.extend({
+        initialize: function(){
+
+            var app_layout = new AppLayout();
+
+            this.render = function(region){
+                region.show(app_layout);
+                app_layout.lunches.show(new LunchesView());
+                app_layout.locations.show(new LocationsView());
+            }
+
+            this.setLunchTab = function(){
+                $(app_layout.lunch_tab.el).tab('show');
+            }
+        }
+    });
+
+	return new TabController();
+
+});

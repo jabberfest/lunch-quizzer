@@ -6,6 +6,7 @@ var app_require = requirejs.config({
         backbone: '<%= javascript_path('backbone/backbone').gsub!('.js','') %>' ,
         handlebars: '<%= javascript_path('handlebars/handlebars-runtime').gsub!('.js','') %>',
         marionette:'<%= javascript_path('backbone/backbone-marionette').gsub!('.js','') %>',
+        bootstrap: '<%= javascript_path('bootstrap/bootstrap').gsub!('.js','') %>',
         "backbone.eventbinder":'<%= javascript_path('backbone/backbone.eventbinder').gsub!('.js','') %>',
         "backbone.wreqr":'<%= javascript_path('backbone/backbone-wreqr').gsub!('.js','') %>',
         "backbone.babysitter":'<%= javascript_path('backbone/backbone-babysitter').gsub!('.js','') %>'
@@ -32,6 +33,9 @@ var app_require = requirejs.config({
         'underscore':{
             deps: [],
             exports: '_'
+        },
+        'bootstrap':{
+            deps: ['jquery']
         }
     }
 });

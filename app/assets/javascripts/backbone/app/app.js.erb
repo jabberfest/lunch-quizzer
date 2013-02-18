@@ -5,14 +5,17 @@ define([
     'handlebars',
     '<%= javascript_path('backbone/app/router') %>',
     '<%= javascript_path('backbone/plugins/extensions') %>',
-    'marionette'
+    'marionette',
+    '<%= javascript_path('backbone/controllers/tab_controller') %>',
+    '<%= javascript_path('backbone/views/regions/app_region') %>',
 
-], function($, _, Backbone){
+], function($, _, Backbone, Handlebars, Router, Extensions, Marionette, TabController, AppRegion){
 
 		var App = new Backbone.Marionette.Application();
 
 
 		App.addInitializer(function(){
+            TabController.render(AppRegion);
 			Backbone.history.start();
 		});
 
